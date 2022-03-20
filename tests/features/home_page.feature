@@ -3,6 +3,7 @@ Feature: Test if the the-internet.herokuapp.com page is displayed
   I want to verify if the page is correctly displayed,
   and if the links are working and the page contains broken images.
 
+
   Scenario: Test the page is displayed
     Given I open the page "https://the-internet.herokuapp.com/"
 #    When I launch the page

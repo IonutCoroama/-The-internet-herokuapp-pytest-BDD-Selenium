@@ -17,6 +17,9 @@ class BrokenImagesPage:
     def get_title_text(self):
         return self.browser.find_element(*self.TITLE_TEXT).text
 
+    def is_title_text_visible(self):
+        return self.browser.find_element(*self.TITLE_TEXT).is_displayed()
+
     def is_first_image_visible(self):
         return self.browser.find_element(*self.FIRST_IMAGE).is_displayed()
 
@@ -25,3 +28,7 @@ class BrokenImagesPage:
 
     def is_third_image_visible(self):
         return self.browser.find_element(*self.THIRD_IMAGE).is_displayed()
+
+    def is_image_visible(self, number_of_image):
+        return self.browser.find_element(By.CSS_SELECTOR,
+                                         '.example > img:nth-child(' + number_of_image + ')').is_displayed()

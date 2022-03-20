@@ -1,9 +1,11 @@
-from pytest_bdd import scenarios, parsers, given, when, then
+from pytest_bdd import scenarios, parsers, given, then
 from pages.ab_test_page import AbTestingPage
 from utils.generic_methods import GenericMethods
 from utils.constants import Constants
 import requests
 
+
+const = Constants
 scenarios('../features/ab_test_page.feature')
 
 
@@ -15,7 +17,6 @@ def open_page(browser, page_url):
 
 @then('the page should open')
 def response_200():
-    const = Constants
     response = requests.get(const.AB_TEST_URL)
     assert response.status_code == 200
 

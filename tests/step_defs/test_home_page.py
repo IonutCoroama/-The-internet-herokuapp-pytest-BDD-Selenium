@@ -17,6 +17,7 @@ def open_page(browser, page_url):
 # def do_nothing():
 #     pass
 
+
 @when('I scroll to the bottom of the page')
 def scroll_to_bottom(browser):
     home_page = HomePage(browser)

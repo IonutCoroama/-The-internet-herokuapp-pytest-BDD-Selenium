@@ -1,18 +1,18 @@
-import time
 from selenium.webdriver.common.by import By
 import requests
 from utils.constants import Constants
 from pages.form_authentication_page import LoginPage
 import random
 import string
+const = Constants
 
 
 class GenericMethods:
     def __init__(self, browser):
         self.browser = browser
 
-    def load_page(self, URL):
-        self.browser.get(URL)
+    def load_page(self, url):
+        self.browser.get(url)
 
     def get_current_url(self):
         return self.browser.current_url
@@ -34,22 +34,18 @@ class GenericMethods:
             return True
 
     def print_flash_message(self):
-        const = Constants
         print(f'        Flash message: {self.browser.find_element(*const.FLASH_MESSAGE).text}')
 
     def login_valid_account(self):
         login_page = LoginPage(self.browser)
-        const = Constants
         login_page.load_page()
         login_page.login_procedure(const.VALID_USERNAME, const.VALID_PASSWORD)
-
 
     def generate_password_length(self):
         choice = []
         for i in range(9999):
             choice.append(i)
         return random.randrange(8, 16)
-
 
     def generate_password(self):
         special_characters = "!@#$%^&*()_+=-}{][|:;'<>,.?/"
@@ -73,7 +69,6 @@ class GenericMethods:
         # print(f'Generated password: {generated_password}')
         return generated_password
 
-
     def generate_username(self):
         generated_username_list = []
         letters_list = list(string.ascii_letters)
@@ -84,5 +79,8 @@ class GenericMethods:
         random.shuffle(generated_username_list)
         generated_username = ''.join(generated_username_list)
         print(username_length)
-        print(f'Generated usermane: {generated_username}')
+        print(f'Generated username: {generated_username}')
         return generated_username
+
+    def get_flash_message(self):
+        return self.browser.find_element(*const.FLASH_MESSAGE).text

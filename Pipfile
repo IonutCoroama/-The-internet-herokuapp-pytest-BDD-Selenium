@@ -8,6 +8,7 @@ pytest-bdd = "*"
 webdriver-manager = "*"
 selenium = "*"
 requests = "*"
+pytest-html = "*"
 
 [dev-packages]
 

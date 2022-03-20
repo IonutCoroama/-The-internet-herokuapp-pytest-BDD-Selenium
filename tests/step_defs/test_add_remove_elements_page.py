@@ -1,8 +1,6 @@
 from pytest_bdd import scenarios, parsers, given, when, then
 from pages.add_remove_elements_page import AddRemoveElementsPage
 from utils.generic_methods import GenericMethods
-from utils.constants import Constants
-import requests
 
 
 scenarios('../features/add_remove-elements_page.feature')
@@ -20,12 +18,15 @@ def click_add_element_button(browser, x):
     x = int(x)
     for i in range(x):
         add_remove_elements_page.click_add_element_button()
+
+
 @when(parsers.cfparse('I click the Delete button "{y}" times'))
 def click_delete_button(browser, y):
     add_remove_elements_page = AddRemoveElementsPage(browser)
     y = int(y)
     for i in range(1, y + 1):
         add_remove_elements_page.click_delete_button()
+
 
 @then('the Title should contain the correct text')
 def is_title_text_ok(browser):

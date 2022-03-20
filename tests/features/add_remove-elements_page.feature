@@ -3,6 +3,7 @@ Feature: Test if the Add/Remove Elements page is functional
   I want to verify if the page is correctly displayed,
   and the buttons actions are as expected.
 
+
   Scenario: Test the page is displayed
     Given I open the page "https://the-internet.herokuapp.com/add_remove_elements/"
     Then the Title should contain the correct text
